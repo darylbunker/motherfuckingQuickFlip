@@ -249,6 +249,48 @@ public class menu : MonoBehaviour {
 
             CreateLevel();
         }
+        else if (type == "backToMain")
+        {
+            level_1.SetActive(false);
+            level_2.SetActive(false);
+            level_3.SetActive(false);
+            level_4.SetActive(false);
+            level_5.SetActive(false);
+            level_6.SetActive(false);
+            level_7.SetActive(false);
+            level_8.SetActive(false);
+
+            level_Panel_1.SetActive(false);
+            level_Panel_2.SetActive(false);
+            level_Panel_3.SetActive(false);
+            level_Panel_4.SetActive(false);
+            level_Panel_5.SetActive(false);
+            level_Panel_6.SetActive(false);
+            level_Panel_7.SetActive(false);
+            level_Panel_8.SetActive(false);
+
+            currentLevelNum = 0;
+
+            backButtonPanel.SetActive(false);
+
+            optionsButtonsPanel.SetActive(false);
+
+            timerPanel.SetActive(false);
+
+            scorePanel.SetActive(false);
+
+            gameOverPanel.SetActive(false);
+
+            state = "level_1";
+            currentLevelNum = 1;
+
+            score = 0;
+            scorePanel.transform.GetChild(0).gameObject.GetComponent<Text>().text = score.ToString();
+
+            state = "mainMenu";
+            mainMenu.GetComponent<SpriteRenderer>().enabled = true;
+            menuButtonsPanel.SetActive(true);
+        }
 
     }
 
@@ -548,6 +590,15 @@ public class menu : MonoBehaviour {
         gameOverPanel.SetActive(true);
         backButtonPanel.SetActive(false);
 
+        level_1.SetActive(false);
+        level_2.SetActive(false);
+        level_3.SetActive(false);
+        level_4.SetActive(false);
+        level_5.SetActive(false);
+        level_6.SetActive(false);
+        level_7.SetActive(false);
+        level_8.SetActive(false);
+
         if (PlayerPrefs.HasKey("highScore"))
         {
             if (score > PlayerPrefs.GetInt("highScore"))
@@ -570,11 +621,12 @@ public class menu : MonoBehaviour {
 
         uiBestScore.GetComponent<Text>().text = "Best Score: " + PlayerPrefs.GetInt("highScore").ToString();
 
+        GameObject newHighText = gameOverPanel.transform.FindChild("NewText").gameObject;
+
         if (newHighScore == true)
-        {
-            GameObject newHighText = gameOverPanel.transform.FindChild("NewText").gameObject;
             newHighText.SetActive(true);
-        }
+        else
+            newHighText.SetActive(false);
 
     }
 	
