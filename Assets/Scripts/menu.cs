@@ -564,6 +564,15 @@ public class menu : MonoBehaviour {
         gameOverPanel.SetActive(true);
         backButtonPanel.SetActive(false);
 
+        level_Panel_1.SetActive(false);
+        level_Panel_2.SetActive(false);
+        level_Panel_3.SetActive(false);
+        level_Panel_4.SetActive(false);
+        level_Panel_5.SetActive(false);
+        level_Panel_6.SetActive(false);
+        level_Panel_7.SetActive(false);
+        level_Panel_8.SetActive(false);
+
         if (PlayerPrefs.HasKey("highScore"))
         {
             if (score > PlayerPrefs.GetInt("highScore"))
