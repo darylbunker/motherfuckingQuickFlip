@@ -12,14 +12,7 @@ public class menu : MonoBehaviour {
     [SerializeField] private GameObject mainMenu;
     private int score = 0;
     private int currentLevelNum = 0;
-    [SerializeField] private GameObject level_1;
-    [SerializeField] private GameObject level_2;
-    [SerializeField] private GameObject level_3;
-    [SerializeField] private GameObject level_4;
-    [SerializeField] private GameObject level_5;
-    [SerializeField] private GameObject level_6;
-    [SerializeField] private GameObject level_7;
-    [SerializeField] private GameObject level_8;
+    
     [SerializeField] private GameObject tutorial;
     [SerializeField] private GameObject optionsOn;
     [SerializeField] private GameObject optionsOff;
@@ -122,6 +115,10 @@ public class menu : MonoBehaviour {
             score = 0;
             scorePanel.transform.GetChild(0).gameObject.GetComponent<Text>().text = score.ToString();
 
+            GameObject tempNew = GameObject.Find("New Game Object");
+            if (tempNew != null)
+                Destroy(tempNew.gameObject);
+
             CreateLevel();
         }
         else if (type == "tutorial")
@@ -166,14 +163,6 @@ public class menu : MonoBehaviour {
         }
         else if (type == "back")
         {
-            level_1.SetActive(false);
-            level_2.SetActive(false);
-            level_3.SetActive(false);
-            level_4.SetActive(false);
-            level_5.SetActive(false);
-            level_6.SetActive(false);
-            level_7.SetActive(false);
-            level_8.SetActive(false);
 
             level_Panel_1.SetActive(false);
             level_Panel_2.SetActive(false);
@@ -203,17 +192,13 @@ public class menu : MonoBehaviour {
             scorePanel.SetActive(false);
 
             StopAllCoroutines();
+
+            GameObject tempNew = GameObject.Find("New Game Object");
+            if (tempNew != null)
+                Destroy(tempNew.gameObject);
         }
         else if (type == "replay")
         {
-            level_1.SetActive(false);
-            level_2.SetActive(false);
-            level_3.SetActive(false);
-            level_4.SetActive(false);
-            level_5.SetActive(false);
-            level_6.SetActive(false);
-            level_7.SetActive(false);
-            level_8.SetActive(false);
 
             level_Panel_1.SetActive(false);
             level_Panel_2.SetActive(false);
@@ -247,18 +232,14 @@ public class menu : MonoBehaviour {
             score = 0;
             scorePanel.transform.GetChild(0).gameObject.GetComponent<Text>().text = score.ToString();
 
+            GameObject tempNew = GameObject.Find("New Game Object");
+            if (tempNew != null)
+                Destroy(tempNew.gameObject);
+
             CreateLevel();
         }
         else if (type == "backToMain")
         {
-            level_1.SetActive(false);
-            level_2.SetActive(false);
-            level_3.SetActive(false);
-            level_4.SetActive(false);
-            level_5.SetActive(false);
-            level_6.SetActive(false);
-            level_7.SetActive(false);
-            level_8.SetActive(false);
 
             level_Panel_1.SetActive(false);
             level_Panel_2.SetActive(false);
@@ -290,6 +271,10 @@ public class menu : MonoBehaviour {
             state = "mainMenu";
             mainMenu.GetComponent<SpriteRenderer>().enabled = true;
             menuButtonsPanel.SetActive(true);
+
+            GameObject tempNew = GameObject.Find("New Game Object");
+            if (tempNew != null)
+                Destroy(tempNew.gameObject);
         }
 
     }
@@ -309,37 +294,30 @@ public class menu : MonoBehaviour {
 
             if (currentLevelNum == 2)
             {
-                level_1.SetActive(false);
                 level_Panel_1.SetActive(false);
             }
             else if (currentLevelNum == 3)
             {
-                level_2.SetActive(false);
                 level_Panel_2.SetActive(false);
             }
             else if (currentLevelNum == 4)
             {
-                level_3.SetActive(false);
                 level_Panel_3.SetActive(false);
             }
             else if (currentLevelNum == 5)
             {
-                level_4.SetActive(false);
                 level_Panel_4.SetActive(false);
             }
             else if (currentLevelNum == 6)
             {
-                level_5.SetActive(false);
                 level_Panel_5.SetActive(false);
             }
             else if (currentLevelNum == 7)
             {
-                level_6.SetActive(false);
                 level_Panel_6.SetActive(false);
             }
             else if (currentLevelNum == 8)
             {
-                level_7.SetActive(false);
                 level_Panel_7.SetActive(false);
             }
 
@@ -360,44 +338,40 @@ public class menu : MonoBehaviour {
     void CreateLevel ()
     {
 
+        GameObject tempNew = GameObject.Find("New Game Object");
+        if (tempNew != null)
+            Destroy(tempNew.gameObject);
+
         if (state == "level_1")
         {
-            level_1.SetActive(true);
             level_Panel_1.SetActive(true);
         }
         else if (state == "level_2")
         {
-            level_2.SetActive(true);
             level_Panel_2.SetActive(true);
         }
         else if (state == "level_3")
         {
-            level_3.SetActive(true);
             level_Panel_3.SetActive(true);
         }
         else if (state == "level_4")
         {
-            level_4.SetActive(true);
             level_Panel_4.SetActive(true);
         }
         else if (state == "level_5")
         {
-            level_5.SetActive(true);
             level_Panel_5.SetActive(true);
         }
         else if (state == "level_6")
         {
-            level_6.SetActive(true);
             level_Panel_6.SetActive(true);
         }
         else if (state == "level_7")
         {
-            level_7.SetActive(true);
             level_Panel_7.SetActive(true);
         }
         else if (state == "level_8")
         {
-            level_8.SetActive(true);
             level_Panel_8.SetActive(true);
         }
 
@@ -589,15 +563,6 @@ public class menu : MonoBehaviour {
         bool newHighScore = false;
         gameOverPanel.SetActive(true);
         backButtonPanel.SetActive(false);
-
-        level_1.SetActive(false);
-        level_2.SetActive(false);
-        level_3.SetActive(false);
-        level_4.SetActive(false);
-        level_5.SetActive(false);
-        level_6.SetActive(false);
-        level_7.SetActive(false);
-        level_8.SetActive(false);
 
         if (PlayerPrefs.HasKey("highScore"))
         {
