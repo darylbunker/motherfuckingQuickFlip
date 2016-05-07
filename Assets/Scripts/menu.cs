@@ -31,6 +31,7 @@ public class menu : MonoBehaviour {
     [SerializeField] private GameObject level_Panel_7;
     [SerializeField] private GameObject level_Panel_8;
 
+    [Header("Colors 0.1")]
     [SerializeField] private Color[] tileColors_0;
     [SerializeField] private Color[] tileColors_1;
     [SerializeField] private Color[] tileColors_2;
@@ -43,6 +44,34 @@ public class menu : MonoBehaviour {
     [SerializeField] private Color[] tileColors_9;
     [SerializeField] private Color[] tileColors_10;
     [SerializeField] private Color[] tileColors_11;
+
+    [Header("Colors 0.2")]
+    [SerializeField] private Color[] tileColors_1_0;
+    [SerializeField] private Color[] tileColors_1_1;
+    [SerializeField] private Color[] tileColors_1_2;
+    [SerializeField] private Color[] tileColors_1_3;
+    [SerializeField] private Color[] tileColors_1_4;
+
+    [Header("Colors 0.3")]
+    [SerializeField] private Color[] tileColors_2_0;
+    [SerializeField] private Color[] tileColors_2_1;
+    [SerializeField] private Color[] tileColors_2_2;
+    [SerializeField] private Color[] tileColors_2_3;
+    [SerializeField] private Color[] tileColors_2_4;
+    [SerializeField] private Color[] tileColors_2_5;
+    [SerializeField] private Color[] tileColors_2_6;
+    [SerializeField] private Color[] tileColors_2_7;
+    [SerializeField] private Color[] tileColors_2_8;
+    [SerializeField] private Color[] tileColors_2_9;
+    [SerializeField] private Color[] tileColors_2_10;
+    [SerializeField] private Color[] tileColors_2_11;
+    [SerializeField] private Color[] tileColors_2_12;
+    [SerializeField] private Color[] tileColors_2_13;
+    [SerializeField] private Color[] tileColors_2_14;
+    [SerializeField] private Color[] tileColors_2_15;
+    [SerializeField] private Color[] tileColors_2_16;
+    [SerializeField] private Color[] tileColors_2_17;
+    [SerializeField] private Color[] tileColors_2_18;
 
     private Color lastColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
@@ -383,8 +412,18 @@ public class menu : MonoBehaviour {
     void ColorTiles ()
     {
 
-        int colorPalette = Random.Range(0, 12);
-        int tone = Random.Range(0, 7);
+        //Color Palette 0.1
+        /*int colorPalette = Random.Range(0, 12);
+        int tone = Random.Range(0, 7);*/
+
+        //Color Palette 0.2
+        /*int colorPalette = Random.Range(0, 5);
+        int tone = Random.Range(0, 13);*/
+
+        //Color Palette 0.3
+        int colorPalette = Random.Range(0, 18);
+        int tone = Random.Range(0, 8);
+
         int altTone = 0;
         Color randColor = Color.white;
         Color altColor = Color.white;
@@ -403,7 +442,8 @@ public class menu : MonoBehaviour {
                 altTone = tone + 1;
         }
 
-        if (colorPalette == 0)
+        //Color Palette 0.1
+        /*if (colorPalette == 0)
         {
             randColor = tileColors_0[tone];
             altColor = tileColors_0[altTone];
@@ -462,6 +502,130 @@ public class menu : MonoBehaviour {
         {
             randColor = tileColors_11[tone];
             altColor = tileColors_11[altTone];
+        }*/
+
+        //Color Palette 0.2
+        /*if (colorPalette == 0)
+        {
+            randColor = tileColors_1_0[tone];
+            altColor = tileColors_1_0[altTone];
+        }
+        else if (colorPalette == 1)
+        {
+            randColor = tileColors_1_1[tone];
+            altColor = tileColors_1_1[altTone];
+        }
+        else if (colorPalette == 2)
+        {
+            randColor = tileColors_1_2[tone];
+            altColor = tileColors_1_2[altTone];
+        }
+        else if (colorPalette == 3)
+        {
+            randColor = tileColors_1_3[tone];
+            altColor = tileColors_1_3[altTone];
+        }
+        else if (colorPalette == 4)
+        {
+            randColor = tileColors_1_4[tone];
+            altColor = tileColors_1_4[altTone];
+        }*/
+
+        //Color Palette 0.3
+        if (colorPalette == 0)
+        {
+            randColor = tileColors_2_0[tone];
+            altColor = tileColors_2_0[altTone];
+        }
+        else if (colorPalette == 1)
+        {
+            randColor = tileColors_2_1[tone];
+            altColor = tileColors_2_1[altTone];
+        }
+        else if (colorPalette == 2)
+        {
+            randColor = tileColors_2_2[tone];
+            altColor = tileColors_2_2[altTone];
+        }
+        else if (colorPalette == 3)
+        {
+            randColor = tileColors_2_3[tone];
+            altColor = tileColors_2_3[altTone];
+        }
+        else if (colorPalette == 4)
+        {
+            randColor = tileColors_2_4[tone];
+            altColor = tileColors_2_4[altTone];
+        }
+        else if (colorPalette == 5)
+        {
+            randColor = tileColors_2_5[tone];
+            altColor = tileColors_2_5[altTone];
+        }
+        else if (colorPalette == 6)
+        {
+            randColor = tileColors_2_6[tone];
+            altColor = tileColors_2_6[altTone];
+        }
+        else if (colorPalette == 7)
+        {
+            randColor = tileColors_2_7[tone];
+            altColor = tileColors_2_7[altTone];
+        }
+        else if (colorPalette == 8)
+        {
+            randColor = tileColors_2_8[tone];
+            altColor = tileColors_2_8[altTone];
+        }
+        else if (colorPalette == 9)
+        {
+            randColor = tileColors_2_9[tone];
+            altColor = tileColors_2_9[altTone];
+        }
+        else if (colorPalette == 10)
+        {
+            randColor = tileColors_2_10[tone];
+            altColor = tileColors_2_10[altTone];
+        }
+        else if (colorPalette == 11)
+        {
+            randColor = tileColors_2_11[tone];
+            altColor = tileColors_2_11[altTone];
+        }
+        else if (colorPalette == 12)
+        {
+            randColor = tileColors_2_12[tone];
+            altColor = tileColors_2_12[altTone];
+        }
+        else if (colorPalette == 13)
+        {
+            randColor = tileColors_2_13[tone];
+            altColor = tileColors_2_13[altTone];
+        }
+        else if (colorPalette == 14)
+        {
+            randColor = tileColors_2_14[tone];
+            altColor = tileColors_2_14[altTone];
+        }
+        else if (colorPalette == 15)
+        {
+            randColor = tileColors_2_15[tone];
+            altColor = tileColors_2_15[altTone];
+        }
+        else if (colorPalette == 16)
+        {
+            randColor = tileColors_2_16[tone];
+            altColor = tileColors_2_16[altTone];
+        }
+        else if (colorPalette == 17)
+        {
+            randColor = tileColors_2_17[tone];
+            altColor = tileColors_2_17[altTone];
+        }
+        else if (colorPalette == 18)
+        {
+            randColor = tileColors_2_18[tone];
+            altColor = tileColors_2_18[altTone];
         }
 
         if (randColor != lastColor)
@@ -603,13 +767,13 @@ public class menu : MonoBehaviour {
             newHighText.SetActive(false);
 
     }
-	
-	
-	void Update ()
-	{
-	
-		
-	
-	}
+
+
+    void Update ()
+    {
+
+
+
+    }
 
 }
