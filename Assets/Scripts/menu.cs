@@ -154,7 +154,7 @@ public class menu : MonoBehaviour {
         {
             mainMenu.GetComponent<SpriteRenderer>().enabled = false;
             menuButtonsPanel.SetActive(false);
-            backButtonPanel.transform.FindChild("backArrow").gameObject.GetComponent<SpriteRenderer>().color = new Color(0.85f, 0.85f, 0.85f);
+            //backButtonPanel.transform.FindChild("backArrow").gameObject.GetComponent<SpriteRenderer>().color = new Color(0.85f, 0.85f, 0.85f);
             backButtonPanel.SetActive(true);
 
             state = "tutorial";
@@ -164,7 +164,7 @@ public class menu : MonoBehaviour {
         {
             mainMenu.GetComponent<SpriteRenderer>().enabled = false;
             menuButtonsPanel.SetActive(false);
-            backButtonPanel.transform.FindChild("backArrow").gameObject.GetComponent<SpriteRenderer>().color = new Color(0.85f, 0.85f, 0.85f);
+            //backButtonPanel.transform.FindChild("backArrow").gameObject.GetComponent<SpriteRenderer>().color = new Color(0.85f, 0.85f, 0.85f);
             backButtonPanel.SetActive(true);
 
             state = "options";
@@ -666,9 +666,9 @@ public class menu : MonoBehaviour {
 
             tempLayout.transform.GetChild(lonelyTile).gameObject.GetComponent<Image>().color = new Color(altColor.r, altColor.g, altColor.b, 1.0f);
 
-            backButtonPanel.transform.FindChild("backArrow").gameObject.GetComponent<SpriteRenderer>().color = new Color(randColor.r, randColor.g, randColor.b, 1.0f);
+           //backButtonPanel.transform.FindChild("backArrow").gameObject.GetComponent<SpriteRenderer>().color = new Color(randColor.r, randColor.g, randColor.b, 1.0f);
 
-            timerPanel.GetComponent<Image>().color = new Color(randColor.r, randColor.g, randColor.b, 1.0f);
+            //timerPanel.GetComponent<Image>().color = new Color(randColor.r, randColor.g, randColor.b, 1.0f);
 
             lastColor = new Color(randColor.r, randColor.g, randColor.b, 1.0f);
 
@@ -727,6 +727,8 @@ public class menu : MonoBehaviour {
         bool newHighScore = false;
         gameOverPanel.SetActive(true);
         backButtonPanel.SetActive(false);
+        scorePanel.SetActive(false);
+        timerPanel.SetActive(false);
 
         level_Panel_1.SetActive(false);
         level_Panel_2.SetActive(false);
@@ -753,18 +755,18 @@ public class menu : MonoBehaviour {
 
         GameObject uiScore = gameOverPanel.transform.FindChild("ScoreText").gameObject;
 
-        uiScore.GetComponent<Text>().text = "Score: " + score.ToString();
+        uiScore.GetComponent<Text>().text = score.ToString();
 
-        GameObject uiBestScore = gameOverPanel.transform.FindChild("BestText").gameObject;
+        //GameObject uiBestScore = gameOverPanel.transform.FindChild("BestText").gameObject;
 
-        uiBestScore.GetComponent<Text>().text = "Best Score: " + PlayerPrefs.GetInt("highScore").ToString();
+        //uiBestScore.GetComponent<Text>().text = "Best Score: " + PlayerPrefs.GetInt("highScore").ToString();
 
-        GameObject newHighText = gameOverPanel.transform.FindChild("NewText").gameObject;
+        //GameObject newHighText = gameOverPanel.transform.FindChild("NewText").gameObject;
 
-        if (newHighScore == true)
+        /*if (newHighScore == true)
             newHighText.SetActive(true);
         else
-            newHighText.SetActive(false);
+            newHighText.SetActive(false);*/
 
     }
 
