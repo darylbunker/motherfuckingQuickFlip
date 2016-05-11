@@ -12,12 +12,14 @@ public class menu : MonoBehaviour {
     [SerializeField] private GameObject mainMenu;
     private int score = 0;
     private int currentLevelNum = 0;
+    private AudioSource[] sounds;
     
     [SerializeField] private GameObject tutorial;
     [SerializeField] private GameObject optionsOn;
     [SerializeField] private GameObject optionsOff;
     [SerializeField] private GameObject menuButtonsPanel;
     [SerializeField] private GameObject backButtonPanel;
+    [SerializeField] private GameObject backButtonPanel_Inverse;
     [SerializeField] private GameObject optionsButtonsPanel;
     [SerializeField] private GameObject timerPanel;
     [SerializeField] private GameObject scorePanel;
@@ -81,6 +83,7 @@ public class menu : MonoBehaviour {
 
         title.GetComponent<SpriteRenderer>().enabled = true;
         StartCoroutine(HideTitle());
+        sounds = Camera.main.GetComponents<AudioSource>();
 
     }
 	
@@ -120,7 +123,7 @@ public class menu : MonoBehaviour {
             mainMenu.GetComponent<SpriteRenderer>().enabled = true;
             menuButtonsPanel.SetActive(true);
             state = "mainMenu";
-
+            sounds[1].Play();
         }
 
     }
@@ -155,7 +158,7 @@ public class menu : MonoBehaviour {
             mainMenu.GetComponent<SpriteRenderer>().enabled = false;
             menuButtonsPanel.SetActive(false);
             //backButtonPanel.transform.FindChild("backArrow").gameObject.GetComponent<SpriteRenderer>().color = new Color(0.85f, 0.85f, 0.85f);
-            backButtonPanel.SetActive(true);
+            backButtonPanel_Inverse.SetActive(true);
 
             state = "tutorial";
             tutorial.GetComponent<SpriteRenderer>().enabled = true;
@@ -165,7 +168,7 @@ public class menu : MonoBehaviour {
             mainMenu.GetComponent<SpriteRenderer>().enabled = false;
             menuButtonsPanel.SetActive(false);
             //backButtonPanel.transform.FindChild("backArrow").gameObject.GetComponent<SpriteRenderer>().color = new Color(0.85f, 0.85f, 0.85f);
-            backButtonPanel.SetActive(true);
+            backButtonPanel_Inverse.SetActive(true);
 
             state = "options";
             optionsButtonsPanel.SetActive(true);
@@ -205,6 +208,7 @@ public class menu : MonoBehaviour {
             currentLevelNum = 0;
 
             backButtonPanel.SetActive(false);
+            backButtonPanel_Inverse.SetActive(false);
 
             state = "mainMenu";
             mainMenu.GetComponent<SpriteRenderer>().enabled = true;
@@ -314,6 +318,8 @@ public class menu : MonoBehaviour {
 
         if (buttonNum == altTileNum)
         {
+            sounds[0].Play();
+
             score += 100;
             scorePanel.transform.GetChild(0).gameObject.GetComponent<Text>().text = score.ToString();
 
@@ -724,7 +730,7 @@ public class menu : MonoBehaviour {
 
     private void GameOver ()
     {
-        bool newHighScore = false;
+        //bool newHighScore = false;
         gameOverPanel.SetActive(true);
         backButtonPanel.SetActive(false);
         scorePanel.SetActive(false);
@@ -744,13 +750,13 @@ public class menu : MonoBehaviour {
             if (score > PlayerPrefs.GetInt("highScore"))
             {
                 PlayerPrefs.SetInt("highScore", score);
-                newHighScore = true;
+                //newHighScore = true;
             }
         }
         else
         {
             PlayerPrefs.SetInt("highScore", score);
-            newHighScore = true;
+            //newHighScore = true;
         }
 
         GameObject uiScore = gameOverPanel.transform.FindChild("ScoreText").gameObject;
