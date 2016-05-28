@@ -33,27 +33,6 @@ public class menu : MonoBehaviour {
     [SerializeField] private GameObject level_Panel_7;
     [SerializeField] private GameObject level_Panel_8;
 
-    [Header("Colors 0.1")]
-    [SerializeField] private Color[] tileColors_0;
-    [SerializeField] private Color[] tileColors_1;
-    [SerializeField] private Color[] tileColors_2;
-    [SerializeField] private Color[] tileColors_3;
-    [SerializeField] private Color[] tileColors_4;
-    [SerializeField] private Color[] tileColors_5;
-    [SerializeField] private Color[] tileColors_6;
-    [SerializeField] private Color[] tileColors_7;
-    [SerializeField] private Color[] tileColors_8;
-    [SerializeField] private Color[] tileColors_9;
-    [SerializeField] private Color[] tileColors_10;
-    [SerializeField] private Color[] tileColors_11;
-
-    [Header("Colors 0.2")]
-    [SerializeField] private Color[] tileColors_1_0;
-    [SerializeField] private Color[] tileColors_1_1;
-    [SerializeField] private Color[] tileColors_1_2;
-    [SerializeField] private Color[] tileColors_1_3;
-    [SerializeField] private Color[] tileColors_1_4;
-
     [Header("Colors 0.3")]
     [SerializeField] private Color[] tileColors_2_0;
     [SerializeField] private Color[] tileColors_2_1;
@@ -73,7 +52,6 @@ public class menu : MonoBehaviour {
     [SerializeField] private Color[] tileColors_2_15;
     [SerializeField] private Color[] tileColors_2_16;
     [SerializeField] private Color[] tileColors_2_17;
-    [SerializeField] private Color[] tileColors_2_18;
 
     private Color lastColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
@@ -123,7 +101,6 @@ public class menu : MonoBehaviour {
             mainMenu.GetComponent<SpriteRenderer>().enabled = true;
             menuButtonsPanel.SetActive(true);
             state = "mainMenu";
-            //sounds[1].Play();
         }
 
     }
@@ -163,7 +140,6 @@ public class menu : MonoBehaviour {
 
             mainMenu.GetComponent<SpriteRenderer>().enabled = false;
             menuButtonsPanel.SetActive(false);
-            //backButtonPanel.transform.FindChild("backArrow").gameObject.GetComponent<SpriteRenderer>().color = new Color(0.85f, 0.85f, 0.85f);
             backButtonPanel_Inverse.SetActive(true);
 
             state = "tutorial";
@@ -175,7 +151,6 @@ public class menu : MonoBehaviour {
 
             mainMenu.GetComponent<SpriteRenderer>().enabled = false;
             menuButtonsPanel.SetActive(false);
-            //backButtonPanel.transform.FindChild("backArrow").gameObject.GetComponent<SpriteRenderer>().color = new Color(0.85f, 0.85f, 0.85f);
             backButtonPanel_Inverse.SetActive(true);
 
             state = "options";
@@ -435,17 +410,8 @@ public class menu : MonoBehaviour {
     void ColorTiles ()
     {
 
-        //Color Palette 0.1
-        /*int colorPalette = Random.Range(0, 12);
-        int tone = Random.Range(0, 7);*/
-
-        //Color Palette 0.2
-        /*int colorPalette = Random.Range(0, 5);
-        int tone = Random.Range(0, 13);*/
-
-        //Color Palette 0.3
         int colorPalette = Random.Range(0, 18);
-        int tone = Random.Range(0, 8);
+        int tone = Random.Range(0, 9);
 
         int altTone = 0;
         Color randColor = Color.white;
@@ -453,8 +419,8 @@ public class menu : MonoBehaviour {
 
         if (tone == 0)
             altTone = 1;
-        else if (tone == 7)
-            altTone = 6;
+        else if (tone == 8)
+            altTone = 7;
         else
         {
             int diffColor = Random.Range(0, 2);
@@ -465,96 +431,6 @@ public class menu : MonoBehaviour {
                 altTone = tone + 1;
         }
 
-        //Color Palette 0.1
-        /*if (colorPalette == 0)
-        {
-            randColor = tileColors_0[tone];
-            altColor = tileColors_0[altTone];
-        }
-        else if (colorPalette == 1)
-        {
-            randColor = tileColors_1[tone];
-            altColor = tileColors_1[altTone];
-        }
-        else if (colorPalette == 2)
-        {
-            randColor = tileColors_2[tone];
-            altColor = tileColors_2[altTone];
-        }
-        else if (colorPalette == 3)
-        {
-            randColor = tileColors_3[tone];
-            altColor = tileColors_3[altTone];
-        }
-        else if (colorPalette == 4)
-        {
-            randColor = tileColors_4[tone];
-            altColor = tileColors_4[altTone];
-        }
-        else if (colorPalette == 5)
-        {
-            randColor = tileColors_5[tone];
-            altColor = tileColors_5[altTone];
-        }
-        else if (colorPalette == 6)
-        {
-            randColor = tileColors_6[tone];
-            altColor = tileColors_6[altTone];
-        }
-        else if (colorPalette == 7)
-        {
-            randColor = tileColors_7[tone];
-            altColor = tileColors_7[altTone];
-        }
-        else if (colorPalette == 8)
-        {
-            randColor = tileColors_8[tone];
-            altColor = tileColors_8[altTone];
-        }
-        else if (colorPalette == 9)
-        {
-            randColor = tileColors_9[tone];
-            altColor = tileColors_9[altTone];
-        }
-        else if (colorPalette == 10)
-        {
-            randColor = tileColors_10[tone];
-            altColor = tileColors_10[altTone];
-        }
-        else if (colorPalette == 11)
-        {
-            randColor = tileColors_11[tone];
-            altColor = tileColors_11[altTone];
-        }*/
-
-        //Color Palette 0.2
-        /*if (colorPalette == 0)
-        {
-            randColor = tileColors_1_0[tone];
-            altColor = tileColors_1_0[altTone];
-        }
-        else if (colorPalette == 1)
-        {
-            randColor = tileColors_1_1[tone];
-            altColor = tileColors_1_1[altTone];
-        }
-        else if (colorPalette == 2)
-        {
-            randColor = tileColors_1_2[tone];
-            altColor = tileColors_1_2[altTone];
-        }
-        else if (colorPalette == 3)
-        {
-            randColor = tileColors_1_3[tone];
-            altColor = tileColors_1_3[altTone];
-        }
-        else if (colorPalette == 4)
-        {
-            randColor = tileColors_1_4[tone];
-            altColor = tileColors_1_4[altTone];
-        }*/
-
-        //Color Palette 0.3
         if (colorPalette == 0)
         {
             randColor = tileColors_2_0[tone];
@@ -645,11 +521,6 @@ public class menu : MonoBehaviour {
             randColor = tileColors_2_17[tone];
             altColor = tileColors_2_17[altTone];
         }
-        else if (colorPalette == 18)
-        {
-            randColor = tileColors_2_18[tone];
-            altColor = tileColors_2_18[altTone];
-        }
 
         if (randColor != lastColor)
         {
@@ -688,10 +559,6 @@ public class menu : MonoBehaviour {
             altTileNum = lonelyTile;
 
             tempLayout.transform.GetChild(lonelyTile).gameObject.GetComponent<Image>().color = new Color(altColor.r, altColor.g, altColor.b, 1.0f);
-
-           //backButtonPanel.transform.FindChild("backArrow").gameObject.GetComponent<SpriteRenderer>().color = new Color(randColor.r, randColor.g, randColor.b, 1.0f);
-
-            //timerPanel.GetComponent<Image>().color = new Color(randColor.r, randColor.g, randColor.b, 1.0f);
 
             lastColor = new Color(randColor.r, randColor.g, randColor.b, 1.0f);
 
@@ -749,7 +616,6 @@ public class menu : MonoBehaviour {
     {
         sounds[2].Stop();
 
-        //bool newHighScore = false;
         gameOverPanel.SetActive(true);
         backButtonPanel.SetActive(false);
         scorePanel.SetActive(false);
@@ -769,29 +635,16 @@ public class menu : MonoBehaviour {
             if (score > PlayerPrefs.GetInt("highScore"))
             {
                 PlayerPrefs.SetInt("highScore", score);
-                //newHighScore = true;
             }
         }
         else
         {
             PlayerPrefs.SetInt("highScore", score);
-            //newHighScore = true;
         }
 
         GameObject uiScore = gameOverPanel.transform.FindChild("ScoreText").gameObject;
 
         uiScore.GetComponent<Text>().text = score.ToString();
-
-        //GameObject uiBestScore = gameOverPanel.transform.FindChild("BestText").gameObject;
-
-        //uiBestScore.GetComponent<Text>().text = "Best Score: " + PlayerPrefs.GetInt("highScore").ToString();
-
-        //GameObject newHighText = gameOverPanel.transform.FindChild("NewText").gameObject;
-
-        /*if (newHighScore == true)
-            newHighText.SetActive(true);
-        else
-            newHighText.SetActive(false);*/
 
     }
 
