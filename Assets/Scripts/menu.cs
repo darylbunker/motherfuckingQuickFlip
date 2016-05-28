@@ -123,7 +123,7 @@ public class menu : MonoBehaviour {
             mainMenu.GetComponent<SpriteRenderer>().enabled = true;
             menuButtonsPanel.SetActive(true);
             state = "mainMenu";
-            sounds[1].Play();
+            //sounds[1].Play();
         }
 
     }
@@ -134,6 +134,8 @@ public class menu : MonoBehaviour {
 
         if (type == "play")
         {
+            sounds[0].Play();
+
             mainMenu.GetComponent<SpriteRenderer>().enabled = false;
             menuButtonsPanel.SetActive(false);
             backButtonPanel.SetActive(true);
@@ -152,9 +154,13 @@ public class menu : MonoBehaviour {
                 Destroy(tempNew.gameObject);
 
             CreateLevel();
+
+            sounds[2].Play();
         }
         else if (type == "tutorial")
         {
+            sounds[0].Play();
+
             mainMenu.GetComponent<SpriteRenderer>().enabled = false;
             menuButtonsPanel.SetActive(false);
             //backButtonPanel.transform.FindChild("backArrow").gameObject.GetComponent<SpriteRenderer>().color = new Color(0.85f, 0.85f, 0.85f);
@@ -165,6 +171,8 @@ public class menu : MonoBehaviour {
         }
         else if (type == "about")
         {
+            sounds[0].Play();
+
             mainMenu.GetComponent<SpriteRenderer>().enabled = false;
             menuButtonsPanel.SetActive(false);
             //backButtonPanel.transform.FindChild("backArrow").gameObject.GetComponent<SpriteRenderer>().color = new Color(0.85f, 0.85f, 0.85f);
@@ -180,6 +188,8 @@ public class menu : MonoBehaviour {
         }
         else if (type == "colorblind")
         {
+            sounds[0].Play();
+
             colorblind = !colorblind;
 
             if (!colorblind)
@@ -195,6 +205,7 @@ public class menu : MonoBehaviour {
         }
         else if (type == "back")
         {
+            sounds[0].Play();
 
             level_Panel_1.SetActive(false);
             level_Panel_2.SetActive(false);
@@ -232,6 +243,7 @@ public class menu : MonoBehaviour {
         }
         else if (type == "replay")
         {
+            sounds[0].Play();
 
             level_Panel_1.SetActive(false);
             level_Panel_2.SetActive(false);
@@ -270,9 +282,12 @@ public class menu : MonoBehaviour {
                 Destroy(tempNew.gameObject);
 
             CreateLevel();
+
+            sounds[2].Play();
         }
         else if (type == "backToMain")
         {
+            sounds[0].Play();
 
             level_Panel_1.SetActive(false);
             level_Panel_2.SetActive(false);
@@ -318,7 +333,7 @@ public class menu : MonoBehaviour {
 
         if (buttonNum == altTileNum)
         {
-            sounds[0].Play();
+            sounds[1].Play();
 
             score += 100;
             scorePanel.transform.GetChild(0).gameObject.GetComponent<Text>().text = score.ToString();
@@ -360,6 +375,8 @@ public class menu : MonoBehaviour {
         }
         else
         {
+            sounds[1].Play();
+
             score -= 50;
             scorePanel.transform.GetChild(0).gameObject.GetComponent<Text>().text = score.ToString();
 
@@ -730,6 +747,8 @@ public class menu : MonoBehaviour {
 
     private void GameOver ()
     {
+        sounds[2].Stop();
+
         //bool newHighScore = false;
         gameOverPanel.SetActive(true);
         backButtonPanel.SetActive(false);
