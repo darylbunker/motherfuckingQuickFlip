@@ -180,6 +180,7 @@ public class menu : MonoBehaviour {
         }
         else if (type == "back")
         {
+            sounds[2].Stop();
             sounds[0].Play();
 
             level_Panel_1.SetActive(false);
